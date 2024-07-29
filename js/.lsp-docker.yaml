@@ -1,0 +1,14 @@
+lsp:
+  server:
+    type: docker 
+    subtype: image 
+    name: tjs_project_js_node_22
+    server: ts-ls 
+    launch_parameters:
+      - "-v tjs_project_js_modules_volume:/modules" 
+      - "--entrypoint typescript-language-server" 
+    launch_command: "--stdio"
+  mappings:
+    # NOTE: the paths must be within the project this server is being build for
+    - source: "/Users/denis/projects/javascript/tjs_project"
+      destination: "/projects"

@@ -1,0 +1,24 @@
+lsp:
+  server:
+    - type: docker 
+      subtype: image 
+      name: cpptest_project_cpp_dev_clang_17
+      server: ccls
+      launch_parameters:
+        - "-v cpptest_project_cpp_thirdparty_volume:/thirdparty" 
+        - "--entrypoint ccls" 
+      launch_command: >-
+        --init={"cache":{"retainInMemory":1},"highlight":{"lsRanges":true},"clang":{"extraArgs":["-std=c++17"]},"index":{"threads":2,"initialBlacklist":["build","libraries/boost","boost"],"aaaaa_initialWhitelist":["sources"]},"compilationDatabaseDirectory":"build/Debug"}
+
+    - type: docker 
+      subtype: image 
+      name: cpptest_project_cpp_dev_clang_17
+      server: cmakels 
+      launch_parameters:
+        - "-v cpptest_project_cpp_thirdparty_volume:/thirdparty" 
+        - "--entrypoint cmake-language-server" 
+      launch_command: ""
+  mappings:
+    # NOTE: the paths must be within the project this server is being build for
+    - source: "/Users/denis/projects/cpp/cpptest_project"
+      destination: "/projects"

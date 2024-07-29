@@ -1,0 +1,17 @@
+lsp:
+  server:
+    type: docker 
+    subtype: image 
+    name: ptest_project_python_dev_3_12 
+    server: pylsp
+    launch_parameters:
+      - "-v ptest_project_python_pkg_volume:/python_pkg_volume" 
+      - "--entrypoint pylsp" 
+    launch_command: ""
+  mappings:
+    # NOTE: the paths must be within the project this server is being build for
+    - source: "/Users/denis/projects/python/ptest_project"
+      destination: "/projects/ptest_project"
+
+# ptest_project_python_dev_3_12 - docker image name what you have built:
+#    PROJECT_NAME="ptest_project" make init_docker

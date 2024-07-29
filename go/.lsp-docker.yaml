@@ -1,0 +1,18 @@
+lsp:
+  server:
+    type: docker 
+    subtype: image 
+    name: tgo_project_go_dev_1_22
+    server: gopls 
+    launch_parameters:
+      - "-v tgo_project_go_pkg_volume:/go_pkg_volume" 
+      - "--entrypoint gopls" 
+    launch_command: "-remote=auto"
+  mappings:
+    # NOTE: the paths must be within the project this server is being build for
+    - source: "/Users/denis/projects/go/tgo_project"
+      destination: "/projects/tgo_project"
+
+# tgo_project_go_dev_1_22 - docker image name:
+#    PROJECT_NAME="tgo_project" make init_docker
+
